@@ -1,0 +1,16 @@
+---
+import Layout from "@/layouts/Layout.astro";
+const { userId } = Astro.locals
+
+if(!userId) 
+  return Astro.redirect('/login')
+---
+
+<Layout title="User Only">
+  <h1 class="text-4xl">User Only </h1>
+  <p class="text-muted-foreground">
+    your id: {userId}
+  </p>
+
+  <a data-logout href="/api/logout" class="flex mt-8 text-blue-500">logout</a>
+</Layout>
